@@ -58,7 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
+    <TypeScriptCompile Include="Scripts\Core\Enums.ts" />
+    <TypeScriptCompile Include="Scripts\Characters\Knight.ts" />
     <Content Include="Scripts\typings\babylonjs\babylon.d.ts" />
+    <TypeScriptCompile Include="Scripts\Weapons\Swords.ts" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +76,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
