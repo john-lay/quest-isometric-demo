@@ -1,4 +1,15 @@
-﻿table tr td {
-    border: 1px solid black;
+﻿body {
     font-size: 2em;
+}
+table tr td {
+    border: 1px solid black;
+}
+
+table tr td a,
+table tr td a:link,
+table tr td a:visited,
+table tr td a:hover,
+table tr td a:active {
+    text-decoration: none;
+    color: black;
 }
