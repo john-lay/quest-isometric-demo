@@ -1,4 +1,6 @@
 ﻿module Weapons {
+    'use strict';
+
     export interface ISword {
         // PROPERTIES
         name: string;
