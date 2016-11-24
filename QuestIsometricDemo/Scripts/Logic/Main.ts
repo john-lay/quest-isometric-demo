@@ -33,12 +33,9 @@ module Logic {
 
                 if (tileMap[tileX][tileY].canMove) {
                     this.moveToDestination(this.calcPath(tileX, tileY));
-                    //this.currentPos[0] = tileX;
-                    //this.currentPos[1] = tileY;
+                    this.currentPos[0] = tileX;
+                    this.currentPos[1] = tileY;
                 }
-
-                // redraw the page
-                //this.drawTable();
             });
         }
 
@@ -163,12 +160,34 @@ module Logic {
         private moveToDestination(path: number[][]) {
 
             var log = "Path = ";
+            var pause: number = 250;
 
             for (var i = path.length - 1; i >= 0; i--) {
-                log += path[i][0] + "," + path[i][1] + " - ";
+
+                //log += path[i][0] + "," + path[i][1] + " - ";
+
+                ((index) => {
+                    var el = document.getElementById("" + path[index][0] + path[index][1]);
+                    var oldBgColor = el.style.backgroundColor;
+
+                    // set the time color to pink after 1/4 second
+                    setTimeout(() => {
+                        el.style.backgroundColor = "HotPink";
+                    }, pause + (pause * (path.length - index)));
+
+                    // change the tile color back after a further 1/4 second
+                    setTimeout(() => {
+                        el.style.backgroundColor = oldBgColor;
+
+                        // redraw the page after the last step
+                        if (index === 0) {
+                            setTimeout(this.drawTable, pause);
+                        }
+                    }, pause + pause + (pause * (path.length - index)));
+                })(i);
             }
 
-            console.log(log);
+            //console.log(log);
         }
     }
 }
