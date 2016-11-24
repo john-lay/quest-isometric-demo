@@ -10,7 +10,8 @@ module Logic {
         
         // PUBLIC METHODS
         drawTable(): void;
-        calcMove(x: number, y: number): string;
+        calcMove(destX: number, destY: number): string;
+        calcPath(destX: number, destY: number): number[][];
     }
 
     export class Main implements IMain {
@@ -26,16 +27,18 @@ module Logic {
             this.drawTable();
 
             document.querySelector('body').addEventListener('click', event => {
-                var tileX:number = parseInt(event.target.dataset.x, 10);
-                var tileY:number = parseInt(event.target.dataset.y, 10);
+
+                var tileX: number = parseInt(event.target.dataset.x, 10);
+                var tileY: number = parseInt(event.target.dataset.y, 10);
 
                 if (tileMap[tileX][tileY].canMove) {
-                    game.currentPos[0] = tileX;
-                    game.currentPos[1] = tileY;
+                    this.moveToDestination(this.calcPath(tileX, tileY));
+                    //this.currentPos[0] = tileX;
+                    //this.currentPos[1] = tileY;
                 }
-                
+
                 // redraw the page
-                game.drawTable();
+                //this.drawTable();
             });
         }
 
@@ -59,44 +62,113 @@ module Logic {
             (<HTMLElement>document.querySelector('body')).innerHTML = table;
         }
 
-        calcMove = (x: number, y: number): string => {
+        calcMove = (destX: number, destY: number): string => {
+
+            var originX: number = this.currentPos[0];
+            var originY: number = this.currentPos[1];
+            var movePoints: number = this.calcMovePoints(originX, destX, originY, destY);
+            var canMove: boolean = movePoints > 0;
+
+            //update the can move status of the tile
+            if (canMove) {
+                tileMap[destX][destY].canMove = true;
+            }
+
+            // the current tile the player is on
+            if (destX === originX && destY === originY) {
+                return '<td id="' + destX + destY + '" style="background-color: yellow"><a href="#" class="tile" data-x="' + destX + '" data-y="' + destY + '">Move: ' + movePoints + '<br /> Cell:' + destX + ', ' + destY + '</a></td>';
+            }
+            if (canMove) {
+                return '<td id="' + destX + destY + '" style="background-color: green"><a href="#" class="tile" data-x="' + destX + '" data-y="' + destY + '">Move: ' + movePoints + '<br /> Cell:' + destX + ', ' + destY + '</a></td>';
+            } else {
+                return '<td id="' + destX + destY + '" style=""><a href="#" class="tile" data-x="' + destX + '" data-y="' + destY + '">Move: ' + movePoints + '<br /> Cell:' + destX + ', ' + destY + '</a></td>';
+            }
+        }
+
+        calcPath = (destX: number, destY: number): number[][] => {
+
+            var originX: number = this.currentPos[0];
+            var originY: number = this.currentPos[1];
+            var path: number[][] = [];
+
+            // our path starts at the destination and each subsequent element moves closer to the origin
+            path.push([destX, destY]);
+
+            var drawPath = (innerOriginX: number, innerOriginY: number) => {
+
+                var innerDestX: number = innerOriginX;
+                var innerDestY: number = innerOriginY;
+                var destChanged: boolean = false; // only allow moving 1 adjacent cell per iteration
+                var pathComplete = innerOriginX === originX && innerOriginY === originY;
+
+                // try to line up x-axis, check adjacent cell to the right
+                if (innerOriginX < originX) {
+                    innerDestX = innerOriginX + 1;
+                    destChanged = true;
+                }
+
+                // try to line up x-axis, check adjacent cell to the left
+                if (innerOriginX > originX && !destChanged) {
+                    innerDestX = innerOriginX - 1;
+                    destChanged = true;
+                }
+
+                // try to line up y-axis, check adjacent cell below
+                if (innerOriginY < originY && !destChanged) {
+                    innerDestY = innerOriginY + 1;
+                    destChanged = true;
+                }
+
+                // try to line up y-axis, check adjacent cell above
+                if (innerOriginY > originY && !destChanged) {
+                    innerDestY = innerOriginY - 1;
+                }
+
+                if (!pathComplete) {
+                    path.push([innerDestX, innerDestY]);
+                    drawPath(innerDestX, innerDestY);
+                }
+            }
+
+            drawPath(destX, destY);
+
+            return path;
+        }
+
+        // PRIVATE METHODS
+        private calcMovePoints(originX, destX, originY, destY) {
+
             var movePoints: number = this.move + 1; // adjust for zeroth array offset
-            var posX: number = this.currentPos[0];
-            var posY: number = this.currentPos[1];
 
             // for columns before the current position subtract the column from the current position
             // for columns after the current position subtract the current position from the column
             // subtract the result of this calculation from the move points to calculate whether
             // the character can move to this position
-            if (x <= posX) {
-                movePoints -= (posX - x);
-            } else if (x > posX) {
-                movePoints -= (x - posX);
+            if (destX <= originX) {
+                movePoints -= (originX - destX);
+            } else if (destX > originX) {
+                movePoints -= (destX - originX);
             }
 
             // as above for rows
-            if (y <= posY) {
-                movePoints -= (posY - y);
-            } else if (y > posY) {
-                movePoints -= (y - posY);
+            if (destY <= originY) {
+                movePoints -= (originY - destY);
+            } else if (destY > originY) {
+                movePoints -= (destY - originY);
             }
 
-            var canMove: boolean = movePoints > 0;
+            return movePoints;
+        }
 
-            //update the can move status of the tile
-            if (canMove) {
-                tileMap[x][y].canMove = true;
+        private moveToDestination(path: number[][]) {
+
+            var log = "Path = ";
+
+            for (var i = path.length - 1; i >= 0; i--) {
+                log += path[i][0] + "," + path[i][1] + " - ";
             }
 
-            // the current tile the player is on
-            if (x === this.currentPos[0] && y === this.currentPos[1]) {
-                return '<td style="background-color: yellow"><a href="#" class="tile" data-x="' + x + '" data-y="' + y + '">' + x + ', ' + y + '</a></td>';
-            }
-            if (canMove) {
-                return '<td style="background-color: green"><a href="#" class="tile" data-x="' + x + '" data-y="' + y + '">' + x + ', ' + y + '</a></td>';
-            } else {
-                return '<td style=""><a href="#" class="tile" data-x="' + x + '" data-y="' + y + '">' + x + ', ' + y + '</a></td>';
-            }
+            console.log(log);
         }
     }
 }
