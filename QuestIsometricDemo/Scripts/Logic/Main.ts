@@ -7,6 +7,7 @@ module Logic {
         // PROPERTIES
         currentPos: number[];
         move: number;
+        jump: number;
         
         // PUBLIC METHODS
         drawTable(): void;
@@ -19,10 +20,13 @@ module Logic {
         // PROPERTIES
         currentPos: number[];
         move: number;
+        jump: number;
 
         constructor() {
             this.currentPos = [8, 6];
             this.move = 3;
+            this.jump = 2;
+
             // render page
             this.drawTable();
 
@@ -71,6 +75,11 @@ module Logic {
             //update the can move status of the tile
             if (canMove) {
                 tileMap[destX][destY].canMove = true;
+            }
+
+            if (!this.canJump(destX, destY)) {
+                tileMap[destX][destY].canMove = false;
+                canMove = false;
             }
 
             // the current tile the player is on
@@ -193,6 +202,30 @@ module Logic {
             }
 
             //console.log(log);
+        }
+
+        private canJump = (destX: number, destY: number): boolean => {
+            
+            var originX: number = this.currentPos[0];
+            var originY: number = this.currentPos[1];
+            var height: number = tileMap[destX][destY].height;
+            var jump: number = tileMap[originX][originY].height + this.jump;
+
+            if (height > jump) {
+                return false;
+            }
+
+            return true;
+        }
+
+        private isInPath = (path: number[][], destX: number, destY: number): boolean => {
+            for (var i = 0; i < path.length; i++) {
+                if (path[i][0] === destX && path[i][1] === destY) {
+                    return true;   // Found it
+                }
+            }
+
+            return false;
         }
     }
 }
