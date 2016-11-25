@@ -21,7 +21,7 @@ module Logic {
         move: number;
 
         constructor() {
-            this.currentPos = [4, 4];
+            this.currentPos = [8, 6];
             this.move = 3;
             // render page
             this.drawTable();
@@ -64,7 +64,9 @@ module Logic {
             var originX: number = this.currentPos[0];
             var originY: number = this.currentPos[1];
             var movePoints: number = this.calcMovePoints(originX, destX, originY, destY);
-            var canMove: boolean = movePoints > 0;
+            var blocked: boolean = tileMap[destX][destY].blocked;
+            var canMove: boolean = movePoints > 0 && !blocked;
+            var height: number = tileMap[destX][destY].height;
 
             //update the can move status of the tile
             if (canMove) {
@@ -73,12 +75,15 @@ module Logic {
 
             // the current tile the player is on
             if (destX === originX && destY === originY) {
-                return '<td id="' + destX + destY + '" style="background-color: yellow"><a href="#" class="tile" data-x="' + destX + '" data-y="' + destY + '">Move: ' + movePoints + '<br /> Cell:' + destX + ', ' + destY + '</a></td>';
+                return '<td id="' + destX + destY + '" style="background-color: yellow"><a href="#" class="tile" data-x="' + destX + '" data-y="' + destY + '">Move: ' + movePoints + '<br /> Cell:' + destX + ', ' + destY + '<br /> Height:' + height + '</a></td>';
+            }
+            if (blocked) {
+                return '<td id="' + destX + destY + '" style="background-color: turquoise"><a href="#" class="tile" data-x="' + destX + '" data-y="' + destY + '">Blocked</a></td>';
             }
             if (canMove) {
-                return '<td id="' + destX + destY + '" style="background-color: green"><a href="#" class="tile" data-x="' + destX + '" data-y="' + destY + '">Move: ' + movePoints + '<br /> Cell:' + destX + ', ' + destY + '</a></td>';
+                return '<td id="' + destX + destY + '" style="background-color: green"><a href="#" class="tile" data-x="' + destX + '" data-y="' + destY + '">Move: ' + movePoints + '<br /> Cell:' + destX + ', ' + destY + '<br /> Height:' + height + '</a></td>';
             } else {
-                return '<td id="' + destX + destY + '" style=""><a href="#" class="tile" data-x="' + destX + '" data-y="' + destY + '">Move: ' + movePoints + '<br /> Cell:' + destX + ', ' + destY + '</a></td>';
+                return '<td id="' + destX + destY + '" style=""><a href="#" class="tile" data-x="' + destX + '" data-y="' + destY + '">Move: ' + movePoints + '<br /> Cell:' + destX + ', ' + destY + '<br /> Height:' + height + '</a></td>';
             }
         }
 
