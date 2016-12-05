@@ -39,6 +39,7 @@ module Logic {
                     this.moveToDestination(this.calcPath(tileX, tileY));
                     this.currentPos[0] = tileX;
                     this.currentPos[1] = tileY;
+                    //this.calcAltPath(tileX, tileY);
                 }
             });
         }
@@ -147,7 +148,148 @@ module Logic {
         }
 
         // PRIVATE METHODS
-        private calcMovePoints(originX, destX, originY, destY) {
+        private calcAltPath(destX: number, destY: number): number[][] {
+            var originX: number = this.currentPos[0];
+            var originY: number = this.currentPos[1];
+            var allPaths: number[][][] = [];
+            var optimalPath: number[][] = [];
+
+            // our path starts at the destination and each subsequent element moves closer to the origin
+            allPaths.push([[destX, destY]]);
+
+            var drawPath = (innerOriginX: number, innerOriginY: number, allPathIndex: number) => {
+                // try to move to adjacent cell
+                var innerDestX: number = innerOriginX;
+                var innerDestY: number = innerOriginY;
+                var pathComplete = innerOriginX === originX && innerOriginY === originY;
+                var pathCopy: number[][];
+                var pathIndex: number;
+                
+                // try to line up x-axis, check adjacent cell to the right
+                if (innerOriginX < originX) {
+                    if (!pathComplete && this.canAddToPath(allPaths[allPathIndex], innerOriginX + 1, innerOriginY)) {
+                        innerDestX = innerOriginX + 1;
+                        pathCopy = allPaths[allPathIndex].slice();
+                        pathIndex = allPaths.length - 1;
+
+                        allPaths.push(pathCopy);
+                        allPaths[pathIndex].push([innerDestX, innerDestY]);
+
+                        drawPath(innerDestX, innerDestY, pathIndex);
+                    }
+                }
+
+                // try to line up x-axis, check adjacent cell to the left
+                if (innerOriginX > originX) {
+                    if (!pathComplete && this.canAddToPath(allPaths[allPathIndex], innerOriginX - 1, innerOriginY)) {
+                        innerDestX = innerOriginX + 1;
+                        pathCopy = allPaths[allPathIndex].slice();
+                        pathIndex = allPaths.length - 1;
+
+                        allPaths.push(pathCopy);
+                        allPaths[pathIndex].push([innerDestX, innerDestY]);
+
+                        drawPath(innerDestX, innerDestY, pathIndex);
+                    }
+                }
+
+                // try to line up y-axis, check adjacent cell below
+                if (innerOriginY < originY) {
+                    if (!pathComplete && this.canAddToPath(allPaths[allPathIndex], innerOriginX, innerOriginY + 1)) {
+                        innerDestY = innerOriginY + 1;
+                        pathCopy = allPaths[allPathIndex].slice();
+                        pathIndex = allPaths.length - 1;
+
+                        allPaths.push(pathCopy);
+                        allPaths[pathIndex].push([innerDestX, innerDestY]);
+
+                        drawPath(innerDestX, innerDestY, pathIndex);
+                    }
+                }
+
+                // try to line up y-axis, check adjacent cell above
+                if (innerOriginY > originY) {
+                    if (!pathComplete && this.canAddToPath(allPaths[allPathIndex], innerOriginX, innerOriginY - 1)) {
+                        innerDestY = innerOriginY - 1;
+                        pathCopy = allPaths[allPathIndex].slice();
+                        pathIndex = allPaths.length - 1;
+
+                        allPaths.push(pathCopy);
+                        allPaths[pathIndex].push([innerDestX, innerDestY]);
+
+                        drawPath(innerDestX, innerDestY, pathIndex);
+                    }
+                }
+            }
+
+            drawPath(destX, destY, 0);
+
+            this.findShortestPath(allPaths);
+            //console.log("allPaths", allPaths);
+            //console.log(this.findShortestPath(allPaths));
+            return optimalPath;
+        }
+
+        private canAddToPath(path: number[][], destX: number, destY: number): boolean {
+
+            //console.log("can jump", this.canJump(destX, destY), "in path", this.isInPath(path, destX, destY), "can move", this.calcMovePoints(this.currentPos[0], destX, this.currentPos[1], destY) > 0 && !tileMap[destX][destY].blocked);
+            // check can jump
+            if (!this.canJump(destX, destY)) {
+                return false;
+            }
+
+            // check is in path
+            if (this.isInPath(path, destX, destY)) {
+                return false;
+            }
+
+            //check can move
+            var movePoints: number = this.calcMovePoints(this.currentPos[0], destX, this.currentPos[1], destY);
+            var blocked: boolean = tileMap[destX][destY].blocked;
+            var canMove: boolean = movePoints > 0 && !blocked;
+
+            if (!canMove) {
+                return false;
+            }
+
+            return true;
+        }
+
+        private findShortestPath(allPaths: number[][][]): number[][] {
+
+            var originX: number = this.currentPos[0];
+            var originY: number = this.currentPos[1];
+            var shortestPathIndex: number = 999;
+            var optimalPath: number[][] = [];
+
+            //console.log("shortest path: Origin x, y", originX, originY);
+
+            for (var i = 0; i < allPaths.length; i++) {
+
+                var output = '';
+                //debug print each path
+                for (var j = 0; j < allPaths[i].length; j++) {
+                    output += allPaths[i][j][0] + ',' + allPaths[i][j][1] + ' - ';
+                }
+
+                console.log(output);
+
+                // check if the last element in the path is the origin
+                var lastIndex = allPaths[i].length - 1;
+                //console.log("last index: ", allPaths[i][lastIndex][0], allPaths[i][lastIndex][1]);
+                if (allPaths[i][lastIndex][0] === originX
+                    && allPaths[i][lastIndex][1] === originY
+                    && allPaths[i].length < shortestPathIndex) {
+
+                    shortestPathIndex = allPaths[i].length;
+                    optimalPath = allPaths[i];
+                }
+            }
+
+            return optimalPath;
+        }
+
+        private calcMovePoints(originX, destX, originY, destY): number {
 
             var movePoints: number = this.move + 1; // adjust for zeroth array offset
 
@@ -206,6 +348,10 @@ module Logic {
 
         private canJump = (destX: number, destY: number): boolean => {
             
+            if (tileMap[destX] === undefined || tileMap[destX] === undefined) {
+                return false;
+            }
+
             var originX: number = this.currentPos[0];
             var originY: number = this.currentPos[1];
             var height: number = tileMap[destX][destY].height;
