@@ -60,13 +60,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
-    <TypeScriptCompile Include="Scripts\Core\Enums.ts" />
-    <TypeScriptCompile Include="Scripts\Characters\Knight.ts" />
-    <TypeScriptCompile Include="Scripts\Maps\TileMap.ts" />
-    <TypeScriptCompile Include="Scripts\Maps\ITile.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Core\Enums.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Characters\Knight.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Maps\TileMap.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Maps\ITile.ts" />
     <Content Include="Scripts\typings\babylonjs\babylon.d.ts" />
-    <TypeScriptCompile Include="Scripts\Logic\Main.ts" />
-    <TypeScriptCompile Include="Scripts\Weapons\Swords.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Logic\Main.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Weapons\Swords.ts" />
     <TypeScriptCompile Include="Scripts\typings\Custom.d.ts" />
     <Content Include="Web.config" />
   </ItemGroup>
