@@ -1,23 +1,23 @@
 ﻿module Weapons {
     'use strict';
 
-    export interface ISword {
+    export interface IWeapon {
         // PROPERTIES
         name: string;
         description: string;
-        type: Equip;
+        type: WeaponType;
+        equipBy: CC[];
         attack: number;
         defence: number;
         weight: number;
-
-        // PUBLIC METHODS
     }
 
-    export class LongSword implements ISword {
+    export class Ragnarok implements IWeapon {
         // PROPERTIES
-        name = "Long Sword";
+        name = "Ragnarok";
         description = "A long sword favoured by knights";
-        type =  Equip.Sword;
+        type = WeaponType.Sword;
+        equipBy = [CC.Knight];
         attack = 40;
         defence = 10;
         weight = 4;

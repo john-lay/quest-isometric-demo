@@ -60,14 +60,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
-    <TypeScriptCompile Include="Scripts\Game\Core\Enums.ts" />
-    <TypeScriptCompile Include="Scripts\Game\Characters\Knight.ts" />
-    <TypeScriptCompile Include="Scripts\Game\Maps\TileMap.ts" />
-    <TypeScriptCompile Include="Scripts\Game\Maps\ITile.ts" />
+    <TypeScriptCompile Include="Scripts\Game\CharacterClass\Soldier.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Character\Hero.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Enum\CharacterClass.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Enum\WeaponType.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Map\TileMap.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Map\ITile.ts" />
     <Content Include="Scripts\typings\babylonjs\babylon.d.ts" />
     <TypeScriptCompile Include="Scripts\Game\Logic\Main.ts" />
-    <TypeScriptCompile Include="Scripts\Game\Weapons\Swords.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Weapon\Swords.ts" />
     <TypeScriptCompile Include="Scripts\typings\Custom.d.ts" />
+    <Content Include="status.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
