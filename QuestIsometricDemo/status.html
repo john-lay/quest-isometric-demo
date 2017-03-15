@@ -4,11 +4,30 @@
     <title>Status Screen</title>
 </head>
 <body>
-    <div id="StatusScreen" ng-controller="StatusController">
-        {{1+1}}
-    </div>
-    <script src="Scripts/Library/angular.min.js"></script>
-    <script src="Scripts/Game/App.js"></script>
-    <script src="Scripts/Game/Controller/StatusController.js"></script>
+<div id="StatusScreen" ng-controller="StatusController">
+    
+    <label for="CharacterSelect">Character Select</label>
+    <select id="CharacterSelect">
+        <option value="1">Hero 1</option>
+    </select>
+
+    <label for="ClassSelect">Class Select</label>
+    <select id="ClassSelect" ng-model="vm.characterClass">
+        <option value="0">Soldier</option>
+        <option value="1">Knight</option>
+        <option value="2">WhiteMage</option>
+        <option value="3">BlackMage</option>
+    </select>
+
+    <label for="WeaponSelect">Weapon Select</label>
+    <select id="WeaponSelect" ng-model="vm.weapon" ng-options="sword.name for sword in swords">
+    </select>
+</div>
+<script src="Scripts/Library/angular.min.js"></script>
+<script src="Scripts/Game/App.js"></script>
+<script src="Scripts/Game/Enum/CharacterClass.js"></script>
+<script src="Scripts/Game/Weapon/Weapon.js"></script>
+<script src="Scripts/Game/Weapon/Swords.js"></script>
+<script src="Scripts/Game/Controller/StatusController.js"></script>
 </body>
 </html>

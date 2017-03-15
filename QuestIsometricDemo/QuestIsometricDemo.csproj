@@ -68,6 +68,7 @@
     <TypeScriptCompile Include="Scripts\Game\Enum\WeaponType.ts" />
     <TypeScriptCompile Include="Scripts\Game\Map\TileMap.ts" />
     <TypeScriptCompile Include="Scripts\Game\Map\ITile.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Weapon\Weapon.ts" />
     <Content Include="Scripts\Library\angular-animate.js" />
     <Content Include="Scripts\Library\angular-animate.min.js" />
     <Content Include="Scripts\Library\angular-aria.js" />

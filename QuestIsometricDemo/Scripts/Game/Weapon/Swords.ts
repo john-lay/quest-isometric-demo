@@ -1,27 +1,15 @@
 ﻿module Weapons {
     'use strict';
 
-    export interface IWeapon {
-        // PROPERTIES
-        name: string;
-        description: string;
-        type: WeaponType;
-        equipBy: CC[];
-        attack: number;
-        defence: number;
-        weight: number;
+    export var ragnarok: IWeapon = {
+        name: "Ragnarok",
+        description: "A long sword favoured by knights",
+        type: WeaponType.Sword,
+        equipBy: [CC.Knight],
+        attack: 40,
+        defence: 10,
+        weight: 4
     }
 
-    export class Ragnarok implements IWeapon {
-        // PROPERTIES
-        name = "Ragnarok";
-        description = "A long sword favoured by knights";
-        type = WeaponType.Sword;
-        equipBy = [CC.Knight];
-        attack = 40;
-        defence = 10;
-        weight = 4;
-
-        // PUBLIC METHODS
-    }
+    swords.push(ragnarok);
 } 

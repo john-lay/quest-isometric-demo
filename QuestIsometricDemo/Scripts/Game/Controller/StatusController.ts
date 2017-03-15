@@ -5,15 +5,14 @@ module StatusModule {
     /*** ANGULAR SCOPE ***/
     export interface IStatusScope extends ng.IScope {
         // PROPERTIES
-        loginData: any;
-        modal: any;
-        pictureUrl: string;
+        swords: Weapons.IWeapon[];
 
-        // PUBLIC METHODS
-        closeLogin(): void;
-        login(): void;
-        doLogin(): void;
-        GetPicture(): void;
+        vm: {
+            characterClass: CC;
+            weapon: Weapons.IWeapon;
+        }
+
+    // PUBLIC METHODS
 
     }
 
@@ -25,10 +24,17 @@ module StatusModule {
 
         static $inject = ["$scope"];
 
-        constructor(scope: IStatusScope) {
+        constructor($scope: IStatusScope) {
             
             // Debug only
-            statusScope = scope;           
+            statusScope = $scope;
+
+            $scope.swords = Weapons.swords;
+
+            $scope.vm = {
+                characterClass: null,
+                weapon: null
+            }
         }
     }
 }
