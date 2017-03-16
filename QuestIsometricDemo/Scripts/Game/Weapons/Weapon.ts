@@ -6,7 +6,7 @@
         name: string;
         description: string;
         //type: WeaponType;
-        skills: any[];
+        abilities: Abilities.IAbility[];
 
         atk: number;
         def: number;

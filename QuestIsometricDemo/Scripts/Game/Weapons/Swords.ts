@@ -5,7 +5,7 @@
         name: 'Blood Sword',
         description: 'Sword stained by the blood of many.',
         //type: WeaponType.Swords,
-        skills: [],
+        abilities: [Abilities.provoke, Abilities.wyrmkiller],
 
         atk: 18,
         def: 0,

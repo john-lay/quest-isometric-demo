@@ -1,7 +1,7 @@
-﻿module CharacterClass {
+﻿module Jobs {
     'use strict';
 
-    export class Soldier implements ICharacterClass {
+    export class Soldier implements IJob {
         // PROPERTIES
         hp = 8.4;
         mp = 1.1;

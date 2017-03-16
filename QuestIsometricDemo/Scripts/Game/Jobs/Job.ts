@@ -1,6 +1,7 @@
-﻿module CharacterClass {
+﻿module Jobs {
+    'use strict';
 
-    export interface ICharacterClass {
+    export interface IJob {
         // PROPERTIES
         hp: number;
         mp: number;

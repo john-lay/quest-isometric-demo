@@ -60,11 +60,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
+    <TypeScriptCompile Include="Scripts\Game\Abilities\Ability.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Abilities\Action.ts" />
     <TypeScriptCompile Include="Scripts\Game\App.ts" />
-    <TypeScriptCompile Include="Scripts\Game\CharacterClasses\Soldier.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Enums\Ability.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Jobs\Soldier.ts" />
     <TypeScriptCompile Include="Scripts\Game\Characters\Hero.ts" />
     <TypeScriptCompile Include="Scripts\Game\Controllers\StatusController.ts" />
-    <TypeScriptCompile Include="Scripts\Game\Enums\CharacterClass.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Enums\Job.ts" />
     <TypeScriptCompile Include="Scripts\Game\Enums\WeaponType.ts" />
     <TypeScriptCompile Include="Scripts\Game\Maps\TileMap.ts" />
     <TypeScriptCompile Include="Scripts\Game\Maps\ITile.ts" />
@@ -72,7 +75,7 @@
     <TypeScriptCompile Include="Scripts\Game\Services\HelperService.ts" />
     <TypeScriptCompile Include="Scripts\Game\Models\HelperModel.ts" />
     <TypeScriptCompile Include="Scripts\Game\Enums\Magical.ts" />
-    <TypeScriptCompile Include="Scripts\Game\CharacterClasses\CharacterClass.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Jobs\Job.ts" />
     <Content Include="Scripts\Libraries\angular-animate.js" />
     <Content Include="Scripts\Libraries\angular-animate.min.js" />
     <Content Include="Scripts\Libraries\angular-aria.js" />
