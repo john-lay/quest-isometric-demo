@@ -12,22 +12,21 @@
     </select>
 
     <label for="ClassSelect">Class Select</label>
-    <select id="ClassSelect" ng-model="vm.characterClass">
-        <option value="0">Soldier</option>
-        <option value="1">Knight</option>
-        <option value="2">WhiteMage</option>
-        <option value="3">BlackMage</option>
+    <select id="ClassSelect" ng-model="vm.characterClass" ng-options="cc.value as cc.text for cc in characterClasses">
+        <option value="">Select character class...</option>
     </select>
 
     <label for="WeaponSelect">Weapon Select</label>
     <select id="WeaponSelect" ng-model="vm.weapon" ng-options="sword.name for sword in swords">
+        <option value="">Select weapon...</option>
     </select>
 </div>
-<script src="Scripts/Library/angular.min.js"></script>
+<script src="Scripts/Libraries/angular.min.js"></script>
 <script src="Scripts/Game/App.js"></script>
-<script src="Scripts/Game/Enum/CharacterClass.js"></script>
-<script src="Scripts/Game/Weapon/Weapon.js"></script>
-<script src="Scripts/Game/Weapon/Swords.js"></script>
-<script src="Scripts/Game/Controller/StatusController.js"></script>
+<script src="Scripts/Game/Enums/CharacterClass.js"></script>
+<script src="Scripts/Game/Weapons/Weapon.js"></script>
+<script src="Scripts/Game/Weapons/Swords.js"></script>
+<script src="Scripts/Game/Services/HelperService.js"></script>
+<script src="Scripts/Game/Controllers/StatusController.js"></script>
 </body>
 </html>

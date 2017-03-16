@@ -1,4 +1,4 @@
-var tileMap = [
+﻿var tileMap: ITile[][] = [
     // row 1
     [
         { height: 6, blocked: false, canMove: false },
@@ -7,12 +7,14 @@ var tileMap = [
         { height: 3, blocked: false, canMove: false },
         { height: 2, blocked: false, canMove: false },
         { height: 1, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
@@ -28,12 +30,14 @@ var tileMap = [
         { height: 1, blocked: false, canMove: false },
         { height: 1, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
@@ -49,12 +53,14 @@ var tileMap = [
         { height: 1, blocked: false, canMove: false },
         { height: 1, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
@@ -70,12 +76,14 @@ var tileMap = [
         { height: 1, blocked: false, canMove: false },
         { height: 1, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
@@ -83,6 +91,7 @@ var tileMap = [
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false }
     ],
+
     // row 5
     [
         { height: 7, blocked: false, canMove: false },
@@ -91,12 +100,14 @@ var tileMap = [
         { height: 3, blocked: true, canMove: false },
         { height: 1, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
@@ -112,12 +123,14 @@ var tileMap = [
         { height: 4, blocked: false, canMove: false },
         { height: 1, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
@@ -133,12 +146,14 @@ var tileMap = [
         { height: 5, blocked: false, canMove: false },
         { height: 4, blocked: false, canMove: false },
         { height: 3, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
@@ -154,12 +169,14 @@ var tileMap = [
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
@@ -175,12 +192,14 @@ var tileMap = [
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
@@ -196,12 +215,14 @@ var tileMap = [
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
@@ -217,12 +238,14 @@ var tileMap = [
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
@@ -238,12 +261,14 @@ var tileMap = [
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
@@ -259,12 +284,14 @@ var tileMap = [
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
@@ -280,12 +307,14 @@ var tileMap = [
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: true, canMove: false },
         { height: 0, blocked: true, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
@@ -301,12 +330,14 @@ var tileMap = [
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: true, canMove: false },
         { height: 0, blocked: true, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
@@ -322,12 +353,14 @@ var tileMap = [
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
@@ -343,12 +376,14 @@ var tileMap = [
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
@@ -364,12 +399,14 @@ var tileMap = [
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
+
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false },
@@ -377,5 +414,4 @@ var tileMap = [
         { height: 0, blocked: false, canMove: false },
         { height: 0, blocked: false, canMove: false }
     ]
-];
-//# sourceMappingURL=TileMap.js.map
+]; 
