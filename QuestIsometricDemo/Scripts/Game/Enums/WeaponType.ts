@@ -1,5 +1,21 @@
 ﻿enum WeaponType {
-    Sword,
-    Spear,
-    Bow
+    Swords,
+    Blades,
+    Sabers,
+    KnightSwords,
+    GreatSwords,
+    BroadSwords,
+    Knives,
+    Rapiers,
+    Katanas,
+    Staves,
+    Rods,
+    Maces,
+    Bows,
+    GreatBows,
+    Spears,
+    Instruments,
+    Knuckles,
+    Souls,
+    Guns
 } 

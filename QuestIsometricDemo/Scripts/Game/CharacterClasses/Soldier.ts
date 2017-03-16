@@ -1,25 +1,20 @@
 ﻿module CharacterClass {
     'use strict';
 
-    export interface ISoldier {
+    export class Soldier implements ICharacterClass {
         // PROPERTIES
-        hp: number;
-        mp: number;
-        move: number;
-        jump: number;
+        hp = 8.4;
+        mp = 1.1;
 
-        // PUBLIC METHODS
-    }
+        atk = 8.8;
+        magPwr = 6;
+        magRst = 7.2;
+        spd = 1.1;
+        eva = 50;
 
-    export class Soldier implements ISoldier {
-        // PROPERTIES
-        public hp = 12;
-        public mp = 4;
-        public move = 2;
-        public jump = 1;
+        move = 4;
+        jump = 2;
 
-        constructor() {
-
-        }
+        weapon = [WeaponType.Swords, WeaponType.GreatSwords];
     }
 } 

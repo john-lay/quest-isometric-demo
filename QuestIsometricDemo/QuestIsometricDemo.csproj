@@ -71,6 +71,8 @@
     <TypeScriptCompile Include="Scripts\Game\Weapons\Weapon.ts" />
     <TypeScriptCompile Include="Scripts\Game\Services\HelperService.ts" />
     <TypeScriptCompile Include="Scripts\Game\Models\HelperModel.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Enums\Magical.ts" />
+    <TypeScriptCompile Include="Scripts\Game\CharacterClasses\CharacterClass.ts" />
     <Content Include="Scripts\Libraries\angular-animate.js" />
     <Content Include="Scripts\Libraries\angular-animate.min.js" />
     <Content Include="Scripts\Libraries\angular-aria.js" />
