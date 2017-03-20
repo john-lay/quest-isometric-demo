@@ -12,7 +12,7 @@
     </select>
 
     <label for="ClassSelect">Class Select</label>
-    <select id="ClassSelect" ng-model="vm.characterClass" ng-options="cc.value as cc.text for cc in characterClasses">
+    <select id="ClassSelect" ng-model="vm.characterClass" ng-options="job.value as job.text for job in jobs">
         <option value="">Select character class...</option>
     </select>
 
@@ -23,9 +23,16 @@
 </div>
 <script src="Scripts/Libraries/angular.min.js"></script>
 <script src="Scripts/Game/App.js"></script>
-<script src="Scripts/Game/Enums/CharacterClass.js"></script>
+
+<script src="Scripts/Game/Enums/Job.js"></script>
+<script src="Scripts/Game/Enums/Ability.js"></script>
+
+<script src="Scripts/Game/Abilities/Ability.js"></script>
+<script src="Scripts/Game/Abilities/Action.js"></script>
+
 <script src="Scripts/Game/Weapons/Weapon.js"></script>
 <script src="Scripts/Game/Weapons/Swords.js"></script>
+
 <script src="Scripts/Game/Services/HelperService.js"></script>
 <script src="Scripts/Game/Controllers/StatusController.js"></script>
 </body>
