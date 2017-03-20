@@ -1,7 +1,7 @@
 ﻿module Weapons {
     'use strict';
 
-    export interface IWeapon {
+    export interface IWeapon extends IEntity {
         // PROPERTIES
         name: string;
         description: string;
