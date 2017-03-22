@@ -7,3 +7,53 @@
 #StatusContainer {
     padding-top: 60px;
 }
+
+#StatusContainer h1,
+#StatusContainer label {
+    color: #fff;
+    font-weight: bold;
+}
+
+.panel-iso {
+    border-color: #6e6e20;
+    border-width: 3px;
+    background-color: transparent;
+}
+
+.panel-iso > .panel-heading,
+.panel-iso > .panel-footer {
+    color: #384030;
+    background-color: #a9b849;
+    border-color: #6e6e20;
+    border-width: 3px;
+    text-transform: uppercase;
+}
+
+.panel-iso > .panel-heading h3 {
+    font-weight: bold;
+}
+
+.panel-iso > .panel-body {
+    background: rgba(0, 0, 255, 0.5);
+    color: #fff;
+}
+
+.panel-iso > .panel-body .status-menu a,
+.panel-iso > .panel-body .status-menu a:link,
+.panel-iso > .panel-body .status-menu a:visited,
+.panel-iso > .panel-body .status-menu a:active {
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.panel-iso > .panel-body .status-menu a:hover {
+    color: #d64f00;
+    text-decoration: none;
+}
+
+.panel-iso > .panel-body .status-menu .disabled,
+.panel-iso > .panel-body .status-menu .disabled a {
+    color: #787880;
+    cursor: not-allowed;
+}

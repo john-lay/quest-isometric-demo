@@ -66,6 +66,7 @@
     <Content Include="Content\Encounter.css" />
     <Content Include="Content\Main.css" />
     <Content Include="Content\Status.css" />
+    <Content Include="Content\TileMap.css" />
     <Content Include="encounter.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\status-bg.png" />

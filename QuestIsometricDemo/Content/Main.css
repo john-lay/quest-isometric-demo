@@ -1,18 +1,21 @@
-﻿#TileContainer {
-    padding-top: 60px;
-    /*font-size: 1.2em;*/
-    font-family: Calibri;
+﻿.navbar-iso {
+    background-color: #a9b849;
+    border-color: #6e6e20;
+    text-transform: uppercase;
 }
 
-table tr td {
-    border: 1px solid black;
+.navbar-iso .navbar-brand,
+.navbar-iso .navbar-nav > li > a {
+    color: #384030;
+    font-weight: bold;
 }
 
-table tr td a,
-table tr td a:link,
-table tr td a:visited,
-table tr td a:hover,
-table tr td a:active {
-    text-decoration: none;
-    color: black;
+.navbar-iso .navbar-brand:hover,
+.navbar-iso .navbar-nav > li > a:hover {
+    color: #000;
+    background: none;
+}
+
+.navbar-iso .navbar-nav > li.active {
+     background-color: #6e6e20;
 }

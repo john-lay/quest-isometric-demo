@@ -3,10 +3,11 @@
 <head>
     <title>Quest Isometric Demo</title>
     <link href="Content/bootstrap.min.css" rel="stylesheet"/>
+    <link href="Content/Main.css" rel="stylesheet" />
     <link href="Content/Status.css" rel="stylesheet" />
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-iso navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -31,21 +32,41 @@
 <div class="container" id="StatusContainer" ng-controller="StatusController">
     <form class="form-group form-inline">
         <h1>Status</h1>
-        <label for="CharacterSelect">Character Select</label>
-        <select class="form-control" id="CharacterSelect">
-            <option value="1">Hero 1</option>
-        </select>
-
-        <label for="ClassSelect">Class Select</label>
-        <select class="form-control" id="ClassSelect" ng-model="vm.characterClass" ng-options="job.value as job.text for job in jobs">
-            <option value="">Select character class...</option>
-        </select>
-
-        <label for="WeaponSelect">Weapon Select</label>
-        <select class="form-control" id="WeaponSelect" ng-model="vm.weapon" ng-options="sword.name for sword in swords">
-            <option value="">Select weapon...</option>
-        </select>
+        <div class="row">
+            <div class="col-md-4">
+                <label for="CharacterSelect">Character Select</label>
+                <select class="form-control" id="CharacterSelect">
+                    <option value="1">Hero 1</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="ClassSelect">Class Select</label>
+                <select class="form-control" id="ClassSelect" ng-model="vm.characterClass" ng-options="job.value as job.text for job in jobs">
+                    <option value="">Select character class...</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="WeaponSelect">Weapon Select</label>
+                <select class="form-control" id="WeaponSelect" ng-model="vm.weapon" ng-options="sword.name for sword in swords">
+                    <option value="">Select weapon...</option>
+                </select>
+            </div>
+        </div>
     </form>
+    <div class="panel panel-iso">
+        <div class="panel-heading">
+            <h3 class="panel-title">Menu</h3>
+        </div>
+        <div class="panel-body">
+            <ul class="status-menu">
+                <li><a href="#">Equip Items</a></li>
+                <li><a href="#">Pick Abilities</a></li>
+                <li><a href="#">Change Jobs</a></li>
+                <li class="disabled"><a href="#">Leave Clan</a></li>
+            </ul>
+        </div>
+        <div class="panel-footer"></div>
+    </div>
 </div>
 
 <script src="Scripts/Libraries/angular.min.js"></script>
