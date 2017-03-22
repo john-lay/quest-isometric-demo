@@ -46,7 +46,7 @@ module Logic {
 
         // PUBLIC METHODS
         drawTable = () => {
-            (<HTMLElement>document.querySelector('body')).innerHTML = '';
+            (<HTMLElement>document.querySelector('#MapContainer')).innerHTML = '';
 
             var table = '<table>';
 
@@ -61,7 +61,7 @@ module Logic {
             }
 
             table += '</table>';
-            (<HTMLElement>document.querySelector('body')).innerHTML = table;
+            (<HTMLElement>document.querySelector('#MapContainer')).innerHTML = table;
         }
 
         calcMove = (destX: number, destY: number): string => {

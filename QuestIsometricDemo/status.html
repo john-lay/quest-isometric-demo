@@ -1,26 +1,53 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="isoApp">
 <head>
-    <title>Status Screen</title>
+    <title>Quest Isometric Demo</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet"/>
+    <link href="Content/Status.css" rel="stylesheet" />
 </head>
 <body>
-<div id="StatusScreen" ng-controller="StatusController">
-    
-    <label for="CharacterSelect">Character Select</label>
-    <select id="CharacterSelect">
-        <option value="1">Hero 1</option>
-    </select>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Quest Isometric Demo</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/index.html">Tile Map</a></li>
+                <li class="active"><a href="/status.html">Status Screen</a></li>
+                <li><a href="/encounter.html">Encounter</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
 
-    <label for="ClassSelect">Class Select</label>
-    <select id="ClassSelect" ng-model="vm.characterClass" ng-options="job.value as job.text for job in jobs">
-        <option value="">Select character class...</option>
-    </select>
+<div class="container" id="StatusContainer" ng-controller="StatusController">
+    <form class="form-group form-inline">
+        <h1>Status</h1>
+        <label for="CharacterSelect">Character Select</label>
+        <select class="form-control" id="CharacterSelect">
+            <option value="1">Hero 1</option>
+        </select>
 
-    <label for="WeaponSelect">Weapon Select</label>
-    <select id="WeaponSelect" ng-model="vm.weapon" ng-options="sword.name for sword in swords">
-        <option value="">Select weapon...</option>
-    </select>
+        <label for="ClassSelect">Class Select</label>
+        <select class="form-control" id="ClassSelect" ng-model="vm.characterClass" ng-options="job.value as job.text for job in jobs">
+            <option value="">Select character class...</option>
+        </select>
+
+        <label for="WeaponSelect">Weapon Select</label>
+        <select class="form-control" id="WeaponSelect" ng-model="vm.weapon" ng-options="sword.name for sword in swords">
+            <option value="">Select weapon...</option>
+        </select>
+    </form>
 </div>
+
 <script src="Scripts/Libraries/angular.min.js"></script>
 <script src="Scripts/Game/App.js"></script>
 
