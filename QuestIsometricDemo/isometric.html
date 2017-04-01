@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <canvas id="GameCanvas" width="800" height="640" style="border:1px solid black;"></canvas>
+    <script>
+        var c = document.getElementById("GameCanvas");
+        var ctx = c.getContext("2d");
+
+        var x0 = 32;
+        var x1 = 62;
+        var y0 = 16;
+        
+        var originX = 100 - x0; // a little bit in
+        var originY = 320 + y0; // half canvas height
+
+        var isFirstInRow = true;
+
+        for (i = 0; i < 4; i++) {
+
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = '#8c7b4d';
+            ctx.fillStyle = "#ccb36e";
+                        
+            originX = originX + x0;
+            originY = originY - y0;
+
+            ctx.beginPath();
+                if (i === 0) {
+                    ctx.moveTo(originX + 1, originY);
+                } else {
+                    ctx.moveTo(originX, originY);
+                }                
+                ctx.lineTo(originX + x0, originY - y0); // tl
+                ctx.lineTo(originX + x1, originY);      // tr
+                ctx.lineTo(originX + x0, originY + y0 - 1); // br
+                //ctx.lineTo(originX, originY);           // bl
+            ctx.closePath();
+
+            ctx.stroke();            
+            ctx.fill();
+
+            if (isFirstInRow) {
+                // draw edge
+                ctx.fillStyle = "#8c7b4d";                
+                
+                ctx.beginPath();
+                    ctx.moveTo(originX + x0, originY + y0);
+                    ctx.lineTo(originX + x0, originY + y0 + y0); // right
+                    ctx.lineTo(originX, originY + y0); // bottom
+                    ctx.lineTo(originX, originY + 2); // left
+                    //ctx.lineTo(originX + x0, originY + y0); //top
+                ctx.closePath();
+
+                ctx.stroke();
+                ctx.fill();
+
+                isFirstInRow = false;
+            }
+        }
+        
+        // grass    #b7e61e     #80a115
+        // ground   #ccb36e     #8c7b4d
+        // water    #99d8e8     #6a96a1
+        // current  #ffffc9     #b0b08b
+        // fire     #f06267     #870014
+        // move     #ffff00     b0b000
+    </script>
+</body>
+</html>
