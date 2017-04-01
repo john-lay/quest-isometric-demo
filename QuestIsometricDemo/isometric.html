@@ -15,49 +15,88 @@
         
         var originX = 100 - x0; // a little bit in
         var originY = 320 + y0; // half canvas height
-
         var isFirstInRow = true;
+        var numRows = 4;
+        var lastRow = numRows - 1;
+        var numCols = 3;
+        var lastCol = numCols - 1;
 
-        for (i = 0; i < 4; i++) {
+        for (var i = 0; i < numCols; i++) {
 
-            ctx.lineWidth = 3;
-            ctx.strokeStyle = '#8c7b4d';
-            ctx.fillStyle = "#ccb36e";
-                        
-            originX = originX + x0;
-            originY = originY - y0;
+            isFirstInRow = true;
+            originX = 100 - x0; // a little bit in
+            originY = 320 + y0; // half canvas height
 
-            ctx.beginPath();
-                if (i === 0) {
+            originX = originX + (i*x0);
+            originY = originY + (i*y0);
+
+            for (var j = 0; j < numRows; j++) {
+
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = '#8c7b4d';
+                ctx.fillStyle = "#ccb36e";
+
+                originX = originX + x0;
+                originY = originY - y0;
+
+                ctx.beginPath();
+                if (j === 0) {
                     ctx.moveTo(originX + 1, originY);
                 } else {
                     ctx.moveTo(originX, originY);
+                }
+
+                if (j === lastRow) {
+                    ctx.lineTo(originX + x0 - 1, originY - y0); // tl
+                } else {
+                    ctx.lineTo(originX + x0, originY - y0); // tl
                 }                
-                ctx.lineTo(originX + x0, originY - y0); // tl
                 ctx.lineTo(originX + x1, originY);      // tr
-                ctx.lineTo(originX + x0, originY + y0 - 1); // br
+                ctx.lineTo(originX + x0, originY + y0); // br
                 //ctx.lineTo(originX, originY);           // bl
-            ctx.closePath();
-
-            ctx.stroke();            
-            ctx.fill();
-
-            if (isFirstInRow) {
-                // draw edge
-                ctx.fillStyle = "#8c7b4d";                
-                
-                ctx.beginPath();
-                    ctx.moveTo(originX + x0, originY + y0);
-                    ctx.lineTo(originX + x0, originY + y0 + y0); // right
-                    ctx.lineTo(originX, originY + y0); // bottom
-                    ctx.lineTo(originX, originY + 2); // left
-                    //ctx.lineTo(originX + x0, originY + y0); //top
                 ctx.closePath();
 
                 ctx.stroke();
                 ctx.fill();
 
-                isFirstInRow = false;
+                if (isFirstInRow) {
+                    // draw left edge
+                    ctx.fillStyle = "#8c7b4d";
+
+                    ctx.beginPath();
+                    ctx.moveTo(originX + x0, originY + y0);
+                    ctx.lineTo(originX + x0, originY + y0 + y0); // right
+                    ctx.lineTo(originX, originY + y0); // bottom
+                    ctx.lineTo(originX, originY + 2); // left
+                    //ctx.lineTo(originX + x0, originY + y0); //top
+                    ctx.closePath();
+
+                    ctx.stroke();
+                    ctx.fill();
+
+                    isFirstInRow = false;
+                }
+
+                if (i === lastCol) {
+                    // draw right edge
+                    ctx.fillStyle = "#8c7b4d";
+
+                    ctx.beginPath();
+                    ctx.moveTo(originX + x1 + 2, originY + 2);
+                    ctx.lineTo(originX + x1, originY + y0 + 1); // right
+                    if (j === 0) {
+                        ctx.lineTo(originX + x0 + 2, originY + y0 + y0); // bottom
+                    }
+                    else {
+                        ctx.lineTo(originX + x0, originY + y0 + y0); // bottom
+                    }                    
+                    ctx.lineTo(originX + x0, originY + y0); // left
+                    //ctx.lineTo(originX + x1, originY); //top
+                    ctx.closePath();
+
+                    ctx.stroke();
+                    ctx.fill();
+                }
             }
         }
         
