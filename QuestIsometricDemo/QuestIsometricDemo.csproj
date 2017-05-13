@@ -82,6 +82,7 @@
     <TypeScriptCompile Include="Scripts\Game\Enums\WeaponType.ts" />
     <TypeScriptCompile Include="Scripts\Game\Maps\TileMap.ts" />
     <TypeScriptCompile Include="Scripts\Game\Maps\ITile.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Phaser.ts" />
     <TypeScriptCompile Include="Scripts\Game\Weapons\Weapon.ts" />
     <TypeScriptCompile Include="Scripts\Game\Services\HelperService.ts" />
     <TypeScriptCompile Include="Scripts\Game\Models\HelperModel.ts" />
@@ -98,12 +99,10 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="isometric.html" />
+    <Content Include="phaser.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery-1.9.1.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\Libraries\angular-animate.js" />
     <Content Include="Scripts\Libraries\angular-animate.min.js" />
     <Content Include="Scripts\Libraries\angular-aria.js" />
@@ -870,6 +869,7 @@
     <Content Include="Scripts\Libraries\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\Libraries\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\Libraries\i18n\angular-locale_zu.js" />
+    <Content Include="Scripts\phaser.min.js" />
     <Content Include="Scripts\typings\angularjs\angular-ui-bootstrap.js" />
     <Content Include="Scripts\typings\babylonjs\babylon.d.ts" />
     <TypeScriptCompile Include="Scripts\Game\Logic\Main.ts" />
@@ -886,6 +886,9 @@
     <Content Include="status.html" />
     <Content Include="Web.config" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\phaser\p2.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\phaser\phaser.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\phaser\pixi.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -903,7 +906,6 @@
     <Content Include="Scripts\Libraries\angular-touch.min.js.map" />
     <Content Include="Scripts\Libraries\angular.min.js.map" />
     <Content Include="Scripts\typings\angularjs\angular-ui-bootstrap.js.map" />
-    <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
