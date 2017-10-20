@@ -82,7 +82,6 @@
     <TypeScriptCompile Include="Scripts\Game\Enums\WeaponType.ts" />
     <TypeScriptCompile Include="Scripts\Game\Maps\TileMap.ts" />
     <TypeScriptCompile Include="Scripts\Game\Maps\ITile.ts" />
-    <TypeScriptCompile Include="Scripts\Game\Phaser.ts" />
     <TypeScriptCompile Include="Scripts\Game\Weapons\Weapon.ts" />
     <TypeScriptCompile Include="Scripts\Game\Services\HelperService.ts" />
     <TypeScriptCompile Include="Scripts\Game\Models\HelperModel.ts" />
@@ -91,6 +90,7 @@
     <TypeScriptCompile Include="Scripts\Game\Controllers\EncounterController.ts" />
     <TypeScriptCompile Include="Scripts\Game\Enums\Direction.ts" />
     <TypeScriptCompile Include="Scripts\Game\Models\Stats.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Phaser.ts" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -887,8 +887,8 @@
     <Content Include="Web.config" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\phaser\p2.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\phaser\phaser.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\phaser\pixi.d.ts" />
+    <Content Include="Scripts\typings\phaser\phaser.d.ts" />
+    <Content Include="Scripts\typings\phaser\pixi.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

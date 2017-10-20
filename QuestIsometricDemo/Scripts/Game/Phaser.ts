@@ -1,4 +1,5 @@
-﻿//class SimpleGame {
+﻿/// <reference path="../typings/phaser/phaser.d.ts" />
+//class SimpleGame {
 
 //    constructor() {
 //        this.game = new Phaser.Game(800, 600, Phaser.AUTO, 'content', { preload: this.preload, create: this.create });

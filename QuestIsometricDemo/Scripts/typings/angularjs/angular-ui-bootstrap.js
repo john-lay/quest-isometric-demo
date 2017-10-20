@@ -3,4 +3,3 @@
 // Definitions by: Brian Surowiec <https://github.com/xt0rted>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 /// <reference path="../angularjs/angular.d.ts" />
-//# sourceMappingURL=angular-ui-bootstrap.js.map

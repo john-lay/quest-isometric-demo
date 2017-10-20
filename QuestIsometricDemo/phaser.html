@@ -1,13 +1,44 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>Quest Isometric Demo</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet"/>
+    <link href="Content/Main.css" rel="stylesheet"/>
     <script src="Scripts/phaser.min.js"></script>
     <script src="Scripts/Game/Phaser.js"></script>
+    <style type="text/css">
+            #PhaserContainer {
+                padding-top: 60px;
+            }
+        </style>
 </head>
 <body>
+<nav class="navbar navbar-iso navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Quest Isometric Demo</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/index.html">Tile Map</a></li>
+                <li><a href="/status.html">Status Screen</a></li>
+                <li><a href="/encounter.html">Encounter</a></li>
+                <li><a href="/isometric.html">Isometric</a></li>
+                <li class="active"><a href="/phaser.html">Phaser</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+<div class="container" id="PhaserContainer">
     <h1>TypeScript HTML App</h1>
-
-    <div id="content"></div>
+    <div id="phaser-example"></div>
+</div>
 </body>
 </html>
