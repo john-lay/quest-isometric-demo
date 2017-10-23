@@ -17,9 +17,19 @@
 
 declare var tileMap: ITile[][];
 
-var isoGame = new Phaser.Game(1024, 600, Phaser.AUTO, 'QuestIsometricDemo', { create: create });
+var isoGame = new Phaser.Game(1024, 600, Phaser.AUTO, 'QuestIsometricDemo', { preload: preload, create: create }, false, false);
+var heroSprite;
 
+function preload() {
+    // 20x32 is the size of each frame, there are 3 frames of animation
+    isoGame.load.spritesheet('hero', 'Images/spritesheet.png', 20, 32, 3);
+}
 function create() {
+    drawGrid();
+    drawHero();
+}
+
+function drawGrid() {
     var originX: number;
     var originY: number;
     var offsetY: number = 128;
@@ -38,6 +48,15 @@ function create() {
             addInteractiveTile(row, col, originX, originY);
         }
     }
+}
+
+function drawHero() {
+    heroSprite = isoGame.add.sprite(112, 306, 'hero');
+    heroSprite.scale.x = 1.5;
+    heroSprite.scale.y = 1.5;
+    heroSprite.animations.add('walk', [1, 2]);
+
+    heroSprite.animations.play('walk', 2, true);
 }
 
 function addInteractiveTile(row: number, col: number, originX: number, originY: number) {
