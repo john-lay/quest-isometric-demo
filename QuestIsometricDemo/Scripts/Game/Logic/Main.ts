@@ -49,13 +49,12 @@ module Logic {
             (<HTMLElement>document.querySelector('#MapContainer')).innerHTML = '';
 
             var table = '<table>';
-
-            for (var y = 0; y < tileMap.length; y++) {
+            for (var row = 0; row < tileMap.length; row++) {
                 table += '<tr>';
-                for (var x = 0; x < tileMap[y].length; x++) {
+                for (var col = 0; col < tileMap[row].length; col++) {
                     //reset canMove for tile
-                    tileMap[x][y].canMove = false;
-                    table += this.calcMove(x, y);
+                    tileMap[row][col].canMove = false;
+                    table += this.calcMove(row, col);   
                 }
                 table += '</tr>';
             }

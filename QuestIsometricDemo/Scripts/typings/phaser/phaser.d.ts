@@ -1701,6 +1701,7 @@ declare module Phaser {
         previousRotation: number;
         renderOrderID: number;
         right: number;
+        tile: { x: number; y: number; };
         top: number;
         type: number;
         world: Phaser.Point;

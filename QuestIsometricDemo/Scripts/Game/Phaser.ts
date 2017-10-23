@@ -17,64 +17,85 @@
 
 declare var tileMap: ITile[][];
 
-var clickGame = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { create: create });
-
-//var graphics1: Phaser.Graphics, graphics2: Phaser.Graphics;
+var isoGame = new Phaser.Game(1024, 600, Phaser.AUTO, 'QuestIsometricDemo', { create: create });
 
 function create() {
     var originX: number;
     var originY: number;
-    var graphic: Phaser.Graphics;
-    
-    for (var i = 0; i < 4; i++) {
-        originX = i * 32;
-        originY = 128 - ((i + 1) * 16);
-        tileMap[0][i].tileGraphic = clickGame.add.graphics(100, 100);
-        graphic = tileMap[0][i].tileGraphic;
-        
-        drawTile(graphic, tileTextures.ground.fill, tileTextures.ground.stroke, originX, originY);
-        graphic.inputEnabled = true;
-        graphic.input.useHandCursor = true;
+    var offsetY: number = 128;
+    var offsetX: number = 0;
 
-        // the below causes all of the mouse events to be bound to the last tile.
-        // so we need to call bind instead so we can set this to null
-        //graphic.events.onInputDown.add(() => onDown(graphic, 32, 0), this);
-        graphic.events.onInputDown.add(onDown.bind(null, graphic, originX, originY), this);
-        graphic.events.onInputUp.add(onUp.bind(null, graphic, originX, originY), this);
-        graphic.events.onInputOver.add(onOver.bind(null, graphic, originX, originY), this);
-        graphic.events.onInputOut.add(onOut.bind(null, graphic, originX, originY), this);
+    // draw the tile rows
+    for (var row = 0; row < tileMap.length; row++) {
+
+        offsetY = offsetY + 16;
+        offsetX = offsetX + 32;
+
+        // draw the tile columns
+        for (var col = 0; col < tileMap[row].length; col++) {
+            originX = offsetX + col * 32;
+            originY = offsetY - ((col + 1) * 16);
+            addInteractiveTile(row, col, originX, originY);
+        }
     }
 }
 
-function drawTile(graphics: Phaser.Graphics, fill: number, stroke: number, originX: number, originY: number) {
+function addInteractiveTile(row: number, col: number, originX: number, originY: number) {
 
-    graphics.clear();
+    // add the tile to the game
+    tileMap[row][col].tileGraphic = isoGame.add.graphics(0, 200);
 
-    graphics.beginFill(fill);
-    graphics.lineStyle(2, stroke, 1);
+    var graphic: Phaser.Graphics = tileMap[row][col].tileGraphic;
+    graphic.inputEnabled = true;
+    graphic.input.useHandCursor = true;
+    graphic.tile = { x: col, y: row };
 
-    graphics.moveTo(originX, originY + 16);         // tl
-    graphics.lineTo(originX + 32, originY);         // tr
-    graphics.lineTo(originX + 64, originY + 16);    // br
-    graphics.lineTo(originX + 32, originY + 32);    // bl
-    graphics.lineTo(originX, originY + 16);         // tl
+    drawTile(graphic, tileMap[row][col].tileStyle.fill, tileMap[row][col].tileStyle.stroke, originX, originY);
 
-    graphics.endFill();
+    // the below causes all of the mouse events to be bound to the last tile.
+    // so we need to call bind instead so we can set this to null
+    //graphic.events.onInputDown.add(() => onDown(graphic, originX, originY), this);
+    graphic.events.onInputDown.add(onDown.bind(null, graphic, originX, originY), this);
+    graphic.events.onInputUp.add(onUp.bind(null, graphic, originX, originY), this);
+    graphic.events.onInputOver.add(onOver.bind(null, graphic, originX, originY), this);
+    graphic.events.onInputOut.add(onOut.bind(null, graphic, originX, originY), this);
 }
 
-function onOver(graphics: Phaser.Graphics, originX: number, originY: number) {
-    drawTile(graphics, tileTextures.current.fill, tileTextures.current.stroke, originX, originY);
+function drawTile(graphic: Phaser.Graphics, fill: number, stroke: number, originX: number, originY: number) {
+
+    graphic.clear();
+
+    graphic.beginFill(fill);
+    graphic.lineStyle(2, stroke, 1);
+
+    graphic.moveTo(originX, originY + 16);         // tl
+    graphic.lineTo(originX + 32, originY);         // tr
+    graphic.lineTo(originX + 64, originY + 16);    // br
+    graphic.lineTo(originX + 32, originY + 32);    // bl
+    graphic.lineTo(originX, originY + 16);         // tl
+
+    graphic.endFill();
 }
 
-function onDown(graphics: Phaser.Graphics, originX: number, originY: number) {
-    drawTile(graphics, tileTextures.move.fill, tileTextures.move.stroke, originX, originY);
+function onOver(graphic: Phaser.Graphics, originX: number, originY: number) {
+    drawTile(graphic, tileTextures.current.fill, tileTextures.current.stroke, originX, originY);
 }
 
-function onUp(graphics: Phaser.Graphics, originX: number, originY: number) {
-    drawTile(graphics, tileTextures.ground.fill, tileTextures.ground.stroke, originX, originY);
+function onDown(graphic: Phaser.Graphics, originX: number, originY: number) {
+    //console.log(graphic);
+    drawTile(graphic, tileTextures.move.fill, tileTextures.move.stroke, originX, originY);
 }
 
-function onOut(graphics: Phaser.Graphics, originX: number, originY: number) {
-    //console.log(graphics.currentPath.points);
-    drawTile(graphics, tileTextures.ground.fill, tileTextures.ground.stroke, originX, originY);
+function onUp(graphic: Phaser.Graphics, originX: number, originY: number) {
+    var fill = tileMap[graphic.tile.y][graphic.tile.x].tileStyle.fill;
+    var stroke = tileMap[graphic.tile.y][graphic.tile.x].tileStyle.stroke;
+
+    drawTile(graphic, fill, stroke, originX, originY);
+}
+
+function onOut(graphic: Phaser.Graphics, originX: number, originY: number) {
+    var fill = tileMap[graphic.tile.y][graphic.tile.x].tileStyle.fill;
+    var stroke = tileMap[graphic.tile.y][graphic.tile.x].tileStyle.stroke;
+
+    drawTile(graphic, fill, stroke, originX, originY);
 }
