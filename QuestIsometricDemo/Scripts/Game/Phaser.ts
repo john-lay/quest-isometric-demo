@@ -18,11 +18,11 @@
 declare var tileMap: ITile[][];
 
 var isoGame = new Phaser.Game(1024, 600, Phaser.AUTO, 'QuestIsometricDemo', { preload: preload, create: create }, false, false);
-var heroSprite;
+var heroSprite: Phaser.Sprite;
 
 function preload() {
     // 20x32 is the size of each frame, there are 3 frames of animation
-    isoGame.load.spritesheet('hero', 'Images/spritesheet.png', 20, 32, 3);
+    isoGame.load.spritesheet('hero', 'Images/spritesheet-bicubic.png', 30, 48, 3);
 }
 function create() {
     drawGrid();
@@ -52,8 +52,8 @@ function drawGrid() {
 
 function drawHero() {
     heroSprite = isoGame.add.sprite(112, 306, 'hero');
-    heroSprite.scale.x = 1.5;
-    heroSprite.scale.y = 1.5;
+    //heroSprite.scale.x = 1.5;
+    //heroSprite.scale.y = 1.5;
     heroSprite.animations.add('walk', [1, 2]);
 
     heroSprite.animations.play('walk', 2, true);
@@ -103,6 +103,8 @@ function onOver(graphic: Phaser.Graphics, originX: number, originY: number) {
 function onDown(graphic: Phaser.Graphics, originX: number, originY: number) {
     //console.log(graphic);
     drawTile(graphic, tileTextures.move.fill, tileTextures.move.stroke, originX, originY);
+    moveSprite(heroSprite, Direction.Down);
+
 }
 
 function onUp(graphic: Phaser.Graphics, originX: number, originY: number) {
@@ -117,4 +119,24 @@ function onOut(graphic: Phaser.Graphics, originX: number, originY: number) {
     var stroke = tileMap[graphic.tile.y][graphic.tile.x].tileStyle.stroke;
 
     drawTile(graphic, fill, stroke, originX, originY);
+}
+
+function moveSprite(sprite: Phaser.Sprite, direction: Direction) {
+    console.log(direction);
+    if (direction === Direction.Up) {
+        sprite.position.x -= 32;
+        sprite.position.y -= 16;
+    }
+    if (direction === Direction.Down) {
+        sprite.position.x += 32;
+        sprite.position.y += 16;
+    }
+    if (direction === Direction.Left) {
+        sprite.position.x -= 32;
+        sprite.position.y += 16;
+    }
+    if (direction === Direction.Right) {
+        sprite.position.x += 32;
+        sprite.position.y -= 16;
+    }
 }
