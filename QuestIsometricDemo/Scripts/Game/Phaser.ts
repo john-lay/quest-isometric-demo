@@ -52,10 +52,8 @@ function drawGrid() {
 
 function drawHero() {
     heroSprite = isoGame.add.sprite(112, 306, 'hero');
-    //heroSprite.scale.x = 1.5;
-    //heroSprite.scale.y = 1.5;
+    heroSprite.tile = { x: 1, y: 1 };
     heroSprite.animations.add('walk', [1, 2]);
-
     heroSprite.animations.play('walk', 2, true);
 }
 
@@ -101,10 +99,8 @@ function onOver(graphic: Phaser.Graphics, originX: number, originY: number) {
 }
 
 function onDown(graphic: Phaser.Graphics, originX: number, originY: number) {
-    //console.log(graphic);
     drawTile(graphic, tileTextures.move.fill, tileTextures.move.stroke, originX, originY);
-    moveSprite(heroSprite, Direction.Down);
-
+    moveToDestination(heroSprite, graphic.tile);
 }
 
 function onUp(graphic: Phaser.Graphics, originX: number, originY: number) {
@@ -122,7 +118,6 @@ function onOut(graphic: Phaser.Graphics, originX: number, originY: number) {
 }
 
 function moveSprite(sprite: Phaser.Sprite, direction: Direction) {
-    console.log(direction);
     if (direction === Direction.Up) {
         sprite.position.x -= 32;
         sprite.position.y -= 16;
@@ -139,4 +134,30 @@ function moveSprite(sprite: Phaser.Sprite, direction: Direction) {
         sprite.position.x += 32;
         sprite.position.y -= 16;
     }
+}
+
+function moveToDestination(sprite: Phaser.Sprite, tile: any) {
+
+    setTimeout(() => {
+        if (sprite.tile.x < tile.x) {
+            moveSprite(sprite, Direction.Right);
+            sprite.tile.x++;
+            moveToDestination(sprite, tile);
+        }
+        else if (sprite.tile.x > tile.x) {
+            moveSprite(sprite, Direction.Left);
+            sprite.tile.x--;
+            moveToDestination(sprite, tile);
+        }
+        else if (sprite.tile.y < tile.y) {
+            moveSprite(sprite, Direction.Down);
+            sprite.tile.y++;
+            moveToDestination(sprite, tile);
+        }
+        else if (sprite.tile.y > tile.y) {
+            moveSprite(sprite, Direction.Up);
+            sprite.tile.y--;
+            moveToDestination(sprite, tile);
+        }
+    }, 250);
 }

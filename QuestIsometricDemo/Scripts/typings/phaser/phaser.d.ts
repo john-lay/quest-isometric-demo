@@ -4603,6 +4603,7 @@ declare module Phaser {
         scaleMin: Phaser.Point;
         scaleMax: Phaser.Point;
         smoothed: boolean;
+        tile: { x: number; y: number; };
         top: number;
         type: number;
         tintedTexture: HTMLCanvasElement;
