@@ -4587,6 +4587,7 @@ declare module Phaser {
         left: number;
         lifespan: number;
         maxHealth: number;
+        move: number;
         name: string;
         offsetX: number;
         offsetY: number;
