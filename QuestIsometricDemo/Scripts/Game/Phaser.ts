@@ -26,7 +26,7 @@ function preload() {
 }
 function create() {
     drawGrid();
-    drawHero();
+    drawHero(8, 6);
 }
 
 function drawGrid() {
@@ -62,9 +62,19 @@ function drawGrid() {
     }
 }
 
-function drawHero() {
-    heroSprite = isoGame.add.sprite(112, 306, 'hero');
-    heroSprite.tile = { x: 1, y: 1 };
+function drawHero(tileX: number, tileY:number) {
+    var originX = 48;
+    var originY = 306;
+    var moveTileRightX = tileX * 32;
+    var moveTileRightY = tileX * 16;
+    var moveTileDownX = tileY * 32;
+    var moveTileDownY = tileY * 16;
+
+    originX = originX + moveTileRightX + moveTileDownX;
+    originY = originY - moveTileRightY + moveTileDownY;
+
+    heroSprite = isoGame.add.sprite(originX, originY, 'hero');
+    heroSprite.tile = { x: tileX, y: tileY };
     heroSprite.animations.add('walk', [1, 2]);
     heroSprite.animations.play('walk', 2, true);
 }
