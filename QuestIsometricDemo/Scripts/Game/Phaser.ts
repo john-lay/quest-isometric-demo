@@ -46,6 +46,18 @@ function drawGrid() {
             originX = offsetX + col * 32;
             originY = offsetY - ((col + 1) * 16);
             addInteractiveTile(row, col, originX, originY);
+
+            // add left side for first col
+            if (col === 0) {
+                var leftSideGraphic: Phaser.Graphics = isoGame.add.graphics(0, 200);
+                drawLeftSide(leftSideGraphic, tileMap[row][col].tileStyle.stroke, originX, originY);
+            }
+
+            // add bottom side for last row
+            if (row === tileMap.length - 1) {
+                var bottomSideGraphic: Phaser.Graphics = isoGame.add.graphics(0, 200);
+                drawBottomSide(bottomSideGraphic, tileMap[row][col].tileStyle.stroke, originX, originY);
+            }
         }
     }
 }
@@ -90,6 +102,38 @@ function drawTile(graphic: Phaser.Graphics, fill: number, stroke: number, origin
     graphic.lineTo(originX + 64, originY + 16);    // br
     graphic.lineTo(originX + 32, originY + 32);    // bl
     graphic.lineTo(originX, originY + 16);         // tl
+
+    graphic.endFill();
+}
+
+function drawLeftSide(graphic: Phaser.Graphics, color: number, originX: number, originY: number) {
+
+    graphic.clear();
+
+    graphic.beginFill(color);
+    graphic.lineStyle(2, color, 1);
+
+    graphic.moveTo(originX, originY + 16);         // tl
+    graphic.lineTo(originX + 32, originY + 32);    // tr
+    graphic.lineTo(originX + 32, originY + 48);    // br
+    graphic.lineTo(originX, originY + 32);         // bl
+    graphic.lineTo(originX, originY + 16);         // tl
+
+    graphic.endFill();
+}
+
+function drawBottomSide(graphic: Phaser.Graphics, color: number, originX: number, originY: number) {
+
+    graphic.clear();
+
+    graphic.beginFill(color);
+    graphic.lineStyle(2, color, 1);
+
+    graphic.moveTo(originX + 32, originY + 32);    // tl
+    graphic.lineTo(originX + 64, originY + 16);    // tr
+    graphic.lineTo(originX + 64, originY + 32);    // br
+    graphic.lineTo(originX + 32, originY + 48);    // bl
+    graphic.lineTo(originX + 32, originY + 32);    // tl
 
     graphic.endFill();
 }
