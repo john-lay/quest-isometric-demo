@@ -82,8 +82,10 @@ function highlightMovableTiles() {
             originY = offsetY - ((col + 1) * 16);
 
             var movePoints: number = calcMovePoints(heroSprite.move, heroSprite.tile.x, col, heroSprite.tile.y, row);
-            
-            if (movePoints > 0) {
+            var currentTile: boolean = heroSprite.tile.x === col && heroSprite.tile.y === row;
+
+            if (movePoints > 0 && !currentTile) {
+                tileMap[row][col].tileGraphic.clear();
                 addInteractiveTile(row, col, originX, originY, true);
             }
         }
@@ -213,17 +215,13 @@ function onDown(graphic: Phaser.Graphics, originX: number, originY: number, high
     if (highlight) {
         drawTile(graphic, tileTextures.fire.fill, tileTextures.fire.stroke, originX, originY);
     } else {
-        var fill = tileMap[graphic.tile.y][graphic.tile.x].tileStyle.fill;
-        var stroke = tileMap[graphic.tile.y][graphic.tile.x].tileStyle.stroke;
-
-        drawTile(graphic, fill, stroke, originX, originY);
+        drawTile(graphic, tileTextures.current.fill, tileTextures.current.stroke, originX, originY);
     }
 }
 
 function onUp(graphic: Phaser.Graphics, originX: number, originY: number, highlight: boolean) {
-    if (highlight) {
+    if (highlight) { 
         moveToDestination(heroSprite, graphic.tile);
-        drawTile(graphic, tileTextures.current.fill, tileTextures.current.stroke, originX, originY);
     } else {
         var fill = tileMap[graphic.tile.y][graphic.tile.x].tileStyle.fill;
         var stroke = tileMap[graphic.tile.y][graphic.tile.x].tileStyle.stroke;
@@ -284,6 +282,24 @@ function moveToDestination(sprite: Phaser.Sprite, tile: any) {
             moveSprite(sprite, Direction.Up);
             sprite.tile.y--;
             moveToDestination(sprite, tile);
+        } else {
+            // sprite has finished moving, so redraw the grid
+            redrawGrid();
         }
     }, 250);
+}
+
+function clearGrid() {
+    for (var row = 0; row < tileMap.length; row++) {
+        for (var col = 0; col < tileMap[row].length; col++) {
+            tileMap[row][col].tileGraphic.clear();
+        }
+    }
+}
+
+function redrawGrid() {
+    clearGrid();
+    drawGrid();
+    highlightMovableTiles();
+    isoGame.world.bringToTop(heroSprite);
 }
