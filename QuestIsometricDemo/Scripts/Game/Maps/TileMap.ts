@@ -24,6 +24,29 @@
     ],
     // row 2
     [
+        { height: 7, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 7, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 2, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 1, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 1, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass }
+    ],
+    // row 3
+    [
         { height: 7, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
         { height: 7, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
         { height: 2, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
@@ -43,85 +66,62 @@
         { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
         { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
         { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass }
-    ],
-    // row 3
-    [
-        { height: 7, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 7, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 2, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 1, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 1, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground }
+        { height: 0, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water }
     ],
     // row 4
     [
-        { height: 7, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 7, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 3, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 1, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 1, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 7, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
+        { height: 7, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
+        { height: 3, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 1, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 1, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
+        { height: 0, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
 
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 0, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
+        { height: 0, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
+        { height: 0, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
+        { height: 0, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
+        { height: 0, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
+        { height: 0, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
 
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground }
+        { height: 0, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
+        { height: 0, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
+        { height: 0, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
+        { height: 0, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
+        { height: 0, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
+        { height: 0, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water }
     ],
     // row 5
     [
-        { height: 7, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 7, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 4, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 7, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 7, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
+        { height: 4, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
         { height: 3, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
-        { height: 1, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 1, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
 
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
 
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground }
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
+        { height: 0, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water }
     ],
     // row 6
     [
-        { height: 7, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 6, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 4, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 4, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 1, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 7, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 6, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 4, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 4, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 1, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
 
         { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
         { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
@@ -133,9 +133,9 @@
         { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
         { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
         { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground }
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water }
     ],
     // row 7
     [
@@ -157,8 +157,8 @@
         { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
         { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
         { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground }
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass }
     ],
     // row 8
     [
@@ -208,10 +208,10 @@
     ],
     // row 10
     [
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
         { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
         { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
 
@@ -231,10 +231,10 @@
     ],
     // row 11
     [
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
         { height: 0, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
         { height: 0, blocked: true, canMove: false, tileGraphic: null, tileStyle: tileTextures.water },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
         { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
         { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
 
@@ -254,10 +254,10 @@
     ],
     // row 12
     [
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
-        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
+        { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.grass },
         { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
         { height: 0, blocked: false, canMove: false, tileGraphic: null, tileStyle: tileTextures.ground },
 

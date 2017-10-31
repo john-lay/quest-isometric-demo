@@ -19,14 +19,18 @@ declare var tileMap: ITile[][];
 
 var isoGame = new Phaser.Game(1024, 600, Phaser.AUTO, 'QuestIsometricDemo', { preload: preload, create: create }, false, false);
 var heroSprite: Phaser.Sprite;
+var zombieSprite: Phaser.Sprite;
 
 function preload() {
     // 20x32 is the size of each frame, there are 3 frames of animation
     isoGame.load.spritesheet('hero', 'Images/spritesheet-bicubic.png', 30, 48, 3);
+    isoGame.load.spritesheet('zombie', 'Images/spritesheet-bicubic-85h.png', 30, 48, 3);
 }
+
 function create() {
     drawGrid();
     drawHero(8, 6);
+    drawZombie(16, 6);
     highlightMovableTiles();
     isoGame.world.bringToTop(heroSprite);
 }
@@ -83,8 +87,9 @@ function highlightMovableTiles() {
 
             var movePoints: number = calcMovePoints(heroSprite.move, heroSprite.tile.x, col, heroSprite.tile.y, row);
             var currentTile: boolean = heroSprite.tile.x === col && heroSprite.tile.y === row;
+            var isBlocked: boolean = tileMap[row][col].blocked;
 
-            if (movePoints > 0 && !currentTile) {
+            if (movePoints > 0 && !currentTile && !isBlocked) {
                 tileMap[row][col].tileGraphic.clear();
                 addInteractiveTile(row, col, originX, originY, true);
             }
@@ -132,6 +137,27 @@ function drawHero(tileX: number, tileY:number) {
     heroSprite.move = 3;
     heroSprite.animations.add('walk', [1, 2]);
     heroSprite.animations.play('walk', 2, true);
+}
+
+function drawZombie(tileX: number, tileY: number) {
+    var originX = 80;
+    var originY = 306;
+    var moveTileRightX = tileX * 32;
+    var moveTileRightY = tileX * 16;
+    var moveTileDownX = tileY * 32;
+    var moveTileDownY = tileY * 16;
+
+    originX = originX + moveTileRightX + moveTileDownX;
+    originY = originY - moveTileRightY + moveTileDownY;
+
+    zombieSprite = isoGame.add.sprite(originX, originY, 'zombie');
+    zombieSprite.tile = { x: tileX, y: tileY };
+    zombieSprite.move = 3;
+    zombieSprite.animations.add('walk', [1, 2]);
+    zombieSprite.animations.play('walk', 2, true);
+
+    // flip sprite
+    zombieSprite.scale.x *= -1;
 }
 
 function addInteractiveTile(row: number, col: number, originX: number, originY: number, highlight: boolean) {

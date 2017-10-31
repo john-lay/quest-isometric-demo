@@ -69,6 +69,7 @@
     <Content Include="Content\TileMap.css" />
     <Content Include="encounter.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Images\spritesheet-bicubic-85h.png" />
     <Content Include="Images\spritesheet-bicubic.png" />
     <Content Include="Images\spritesheet.png" />
     <Content Include="Images\status-bg.png" />
