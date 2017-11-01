@@ -16,10 +16,13 @@
  */
 
 declare var tileMap: ITile[][];
-
 var isoGame = new Phaser.Game(1024, 600, Phaser.AUTO, 'QuestIsometricDemo', { preload: preload, create: create }, false, false);
-var heroSprite: Phaser.Sprite;
-var zombieSprite: Phaser.Sprite;
+
+module Assets {
+    'use strict';
+    export var heroSprite: Phaser.Sprite;
+    export var zombieSprite: Phaser.Sprite;
+}
 
 function preload() {
     // 20x32 is the size of each frame, there are 3 frames of animation
@@ -32,7 +35,7 @@ function create() {
     drawHero(8, 6);
     drawZombie(16, 6);
     highlightMovableTiles();
-    isoGame.world.bringToTop(heroSprite);
+    isoGame.world.bringToTop(Assets.heroSprite);
 }
 
 function drawGrid() {
@@ -85,8 +88,8 @@ function highlightMovableTiles() {
             originX = offsetX + col * 32;
             originY = offsetY - ((col + 1) * 16);
 
-            var movePoints: number = calcMovePoints(heroSprite.move, heroSprite.tile.x, col, heroSprite.tile.y, row);
-            var currentTile: boolean = heroSprite.tile.x === col && heroSprite.tile.y === row;
+            var movePoints: number = calcMovePoints(Assets.heroSprite.move, Assets.heroSprite.tile.x, col, Assets.heroSprite.tile.y, row);
+            var currentTile: boolean = Assets.heroSprite.tile.x === col && Assets.heroSprite.tile.y === row;
             var isBlocked: boolean = tileMap[row][col].blocked;
 
             if (movePoints > 0 && !currentTile && !isBlocked) {
@@ -132,11 +135,11 @@ function drawHero(tileX: number, tileY:number) {
     originX = originX + moveTileRightX + moveTileDownX;
     originY = originY - moveTileRightY + moveTileDownY;
 
-    heroSprite = isoGame.add.sprite(originX, originY, 'hero');
-    heroSprite.tile = { x: tileX, y: tileY };
-    heroSprite.move = 3;
-    heroSprite.animations.add('walk', [1, 2]);
-    heroSprite.animations.play('walk', 2, true);
+    Assets.heroSprite = isoGame.add.sprite(originX, originY, 'hero');
+    Assets.heroSprite.tile = { x: tileX, y: tileY };
+    Assets.heroSprite.move = 3;
+    Assets.heroSprite.animations.add('walk', [1, 2]);
+    Assets.heroSprite.animations.play('walk', 2, true);
 }
 
 function drawZombie(tileX: number, tileY: number) {
@@ -149,15 +152,15 @@ function drawZombie(tileX: number, tileY: number) {
 
     originX = originX + moveTileRightX + moveTileDownX;
     originY = originY - moveTileRightY + moveTileDownY;
-
-    zombieSprite = isoGame.add.sprite(originX, originY, 'zombie');
-    zombieSprite.tile = { x: tileX, y: tileY };
-    zombieSprite.move = 3;
-    zombieSprite.animations.add('walk', [1, 2]);
-    zombieSprite.animations.play('walk', 2, true);
+    
+    Assets.zombieSprite = isoGame.add.sprite(originX, originY, 'zombie');
+    Assets.zombieSprite.tile = { x: tileX, y: tileY };
+    Assets.zombieSprite.move = 3;
+    Assets.zombieSprite.animations.add('walk', [1, 2]);
+    Assets.zombieSprite.animations.play('walk', 2, true);
 
     // flip sprite
-    zombieSprite.scale.x *= -1;
+    Assets.zombieSprite.scale.x *= -1;
 }
 
 function addInteractiveTile(row: number, col: number, originX: number, originY: number, highlight: boolean) {
@@ -247,7 +250,7 @@ function onDown(graphic: Phaser.Graphics, originX: number, originY: number, high
 
 function onUp(graphic: Phaser.Graphics, originX: number, originY: number, highlight: boolean) {
     if (highlight) { 
-        moveToDestination(heroSprite, graphic.tile);
+        moveToDestination(Assets.heroSprite, graphic.tile);
     } else {
         var fill = tileMap[graphic.tile.y][graphic.tile.x].tileStyle.fill;
         var stroke = tileMap[graphic.tile.y][graphic.tile.x].tileStyle.stroke;
@@ -327,5 +330,6 @@ function redrawGrid() {
     clearGrid();
     drawGrid();
     highlightMovableTiles();
-    isoGame.world.bringToTop(heroSprite);
+    isoGame.world.bringToTop(Assets.heroSprite);
+    isoGame.world.bringToTop(Assets.zombieSprite);
 }

@@ -108,6 +108,8 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <TypeScriptCompile Include="Scripts\Game\Maps\ITileTextures.ts" />
     <TypeScriptCompile Include="Scripts\Game\Maps\TileTextures.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Logic\Render.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Logic\Interactive.ts" />
     <Content Include="Scripts\Libraries\angular-animate.js" />
     <Content Include="Scripts\Libraries\angular-animate.min.js" />
     <Content Include="Scripts\Libraries\angular-aria.js" />
@@ -877,7 +879,7 @@
     <Content Include="Scripts\phaser.min.js" />
     <Content Include="Scripts\typings\angularjs\angular-ui-bootstrap.js" />
     <Content Include="Scripts\typings\babylonjs\babylon.d.ts" />
-    <TypeScriptCompile Include="Scripts\Game\Logic\Main.ts" />
+    <TypeScriptCompile Include="Scripts\Game\Logic\Table.ts" />
     <TypeScriptCompile Include="Scripts\Game\Weapons\Swords.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
