@@ -1,4 +1,5 @@
-﻿/// <reference path="Logic/Render.ts" />
+﻿/// <reference path="enums/direction.ts" />
+/// <reference path="Logic/Render.ts" />
 /// <reference path="Maps/ITileTextures.ts" />
 /// <reference path="Maps/TileTextures.ts" />
 /// <reference path="../typings/phaser/phaser.d.ts" />

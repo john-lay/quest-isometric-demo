@@ -26,7 +26,7 @@ module HelperModule {
 
             for (var key in enumerator) {
                 if (enumerator.hasOwnProperty(key) && this.isNumeric(key)) {
-                    vm.push({ value: key, text: enumerator[key] });
+                    //vm.push({ value: key, text: enumerator[key] });
                 }
             }
 

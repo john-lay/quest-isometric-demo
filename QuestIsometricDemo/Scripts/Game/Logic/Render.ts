@@ -1,6 +1,6 @@
 ﻿/// <reference path="Interactive.ts" />
 declare var IsoGame: Phaser.Game;
-declare var Assets: any;
+//declare var Assets: any;
 
 module Draw {
     'use strict';
